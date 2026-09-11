@@ -1,0 +1,3 @@
+# Images were uploaded to the site root rather than an images/ folder.
+# This serves them from the root whenever a page asks for /images/...
+/images/*  /:splat  200
