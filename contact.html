@@ -72,7 +72,10 @@
       </div>
     </div>
     <div>
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contact-form">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+            action="/thanks.html" id="contact-form">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hidden"><label>Leave this field empty <input name="bot-field"></label></p>
         <div class="field">
           <label for="c-role">I am reaching out as</label>
           <select id="c-role" name="enquiry_type" required>
@@ -94,7 +97,6 @@
         <div class="field" id="f-outlet" hidden><label for="c-outlet">Publication or outlet</label><input id="c-outlet" type="text" name="outlet"></div>
         <div class="field" id="f-deadline" hidden><label for="c-deadline">Deadline, if you have one</label><input id="c-deadline" type="text" name="deadline"></div>
         <div class="field"><label for="c-msg">What would you like to know?</label><textarea id="c-msg" name="message"></textarea></div>
-        <input type="hidden" name="_subject" value="5D website enquiry">
         <button class="btn" type="submit">Send</button>
         <p class="form-foot">You will hear back from us personally.</p>
       </form>
