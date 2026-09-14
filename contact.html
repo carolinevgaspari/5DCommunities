@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | 5D Communities</title>
+<meta name="description" content="Filtered inquiry forms for future residents, partners and investors, and press.">
+<link rel="canonical" href="https://5dcommunities.org/contact.html">
+<meta property="og:site_name" content="5D Communities">
+<meta property="og:title" content="Contact | 5D Communities">
+<meta property="og:description" content="Filtered inquiry forms for future residents, partners and investors, and press.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://5dcommunities.org/contact.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="mast">
+  <div class="wrap mast-in">
+    <a class="wordmark" href="index.html">5D Communities<span class="place">Independent living, together</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="dimensions.html">The 5 Dimensions</a>
+      <a href="communities.html">Communities</a>
+      <a href="design.html">Design</a>
+      <a href="residents.html">Residents</a>
+      <a href="partners.html">Partners</a>
+      <a href="journal.html">Journal</a>
+      <a href="contact.html" class="here" aria-current="page">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="phead">
+  <div class="wrap">
+    <h1>Get in touch.</h1>
+    <p class="lede">
+      Tell us who you are and we will route your note to the right place. We reply personally, and
+      nothing you write goes anywhere else.
+    </p>
+  </div>
+</div>
+
+<section class="band-a">
+  <div class="wrap split">
+    <div>
+      <h2>Three kinds of conversation.</h2>
+      <div class="sect-intro measure">
+        <p>
+          <strong>Future residents.</strong> Questions about the communities, the homes, ownership or
+          the timeline. Applications are not open yet, and the list hears first when they are.
+        </p>
+        <p>
+          <strong>Partners and investors.</strong> Capital, land, design, construction and services.
+          There is a fuller form on the <a href="partners.html">partners page</a>.
+        </p>
+        <p>
+          <strong>Press and media.</strong> Interviews, images and background on the project.
+        </p>
+        <p style="margin-top:2rem">
+          Or write directly to <a href="mailto:5DCommunitiesllc@gmail.com">5DCommunitiesllc@gmail.com</a>,
+          and follow the build on <a href="https://www.instagram.com/dontcallme_julia/" rel="me noopener">Julie’s Instagram</a>.
+        </p>
+      </div>
+    </div>
+    <div>
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+            action="/thanks.html" id="contact-form">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hidden"><label>Leave this field empty <input name="bot-field"></label></p>
+        <div class="field">
+          <label for="c-role">I am reaching out as</label>
+          <select id="c-role" name="inquiry_type" required>
+            <option value="Future resident">A future resident</option>
+            <option value="Family member">Family of a future resident</option>
+            <option value="Partner or investor">A partner or investor</option>
+            <option value="Press or media">Press or media</option>
+          </select>
+        </div>
+        <div class="field"><label for="c-name">Your name</label><input id="c-name" type="text" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" name="email" autocomplete="email" required></div>
+        <div class="field"><label for="c-phone">Phone, if you would rather we called</label><input id="c-phone" type="tel" name="phone" autocomplete="tel"></div>
+        <div class="field" id="f-where"><label for="c-where">Where are you living now?</label><input id="c-where" type="text" name="location"></div>
+        <div class="field" id="f-community"><label for="c-community">Which community interests you?</label>
+          <select id="c-community" name="community">
+            <option>Phoenix, Arizona</option><option>Colorado</option><option>Kansas</option>
+            <option>A future location</option><option>Not sure yet</option>
+          </select></div>
+        <div class="field" id="f-outlet" hidden><label for="c-outlet">Publication or outlet</label><input id="c-outlet" type="text" name="outlet"></div>
+        <div class="field" id="f-deadline" hidden><label for="c-deadline">Deadline, if you have one</label><input id="c-deadline" type="text" name="deadline"></div>
+        <div class="field"><label for="c-msg">What would you like to know?</label><textarea id="c-msg" name="message"></textarea></div>
+        <button class="btn" type="submit">Send</button>
+        <p class="form-foot">You will hear back from us personally.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+/* Show only the fields that match the kind of inquiry. */
+(function(){
+  var role = document.getElementById('c-role');
+  if(!role) return;
+  var groups = {
+    resident: ['f-where','f-community'],
+    press:    ['f-outlet','f-deadline']
+  };
+  function show(id, on){
+    var el = document.getElementById(id);
+    if(el){ el.hidden = !on; }
+  }
+  function update(){
+    var v = role.value;
+    var isResident = (v === 'Future resident' || v === 'Family member');
+    var isPress = (v === 'Press or media');
+    groups.resident.forEach(function(id){ show(id, isResident); });
+    groups.press.forEach(function(id){ show(id, isPress); });
+  }
+  role.addEventListener('change', update);
+  update();
+})();
+</script>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <hr class="foot-rule">
+    <div class="foot-grid">
+      <div>
+        <div class="display foot-mark">5D Communities</div>
+        <div class="soft">Discovery. Direction. Depth. Dignity. Delight.</div>
+      </div>
+      <div>
+        <div><a href="mailto:5DCommunitiesllc@gmail.com">5DCommunitiesllc@gmail.com</a></div>
+        <div style="margin-top:0.5rem"><a href="https://www.instagram.com/dontcallme_julia/" rel="me noopener">Julie on Instagram</a></div>
+      </div>
+      <div>
+        <div><a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+    <p class="legal">
+      All images on this site are concept renderings produced with AI, not photographs of completed
+      buildings. 5D Communities is a company in formation. This website is provided for information only. It is
+      not an offer to sell, or a solicitation of an offer to buy, any interest, security or property.
+      Descriptions, renderings and figures are conceptual and subject to change. Any decision to join
+      a community will be made on the basis of the formal documents provided at that time.
+    </p>
+  </div>
+</footer>
+</body>
+</html>
